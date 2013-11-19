@@ -1,0 +1,3 @@
+/Users/rodrigopex/Teaching/p1/2013.2/P1Charts/build/drawing/CMakeFiles/Drawing.dir
+/Users/rodrigopex/Teaching/p1/2013.2/P1Charts/build/storage/CMakeFiles/Storage.dir
+/Users/rodrigopex/Teaching/p1/2013.2/P1Charts/build/CMakeFiles/p1charts.dir

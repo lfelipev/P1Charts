@@ -1,0 +1,1 @@
+/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/p1charts.dir/main.c.o CMakeFiles/p1charts.dir/drawing/drawing.c.o CMakeFiles/p1charts.dir/storage/storage.c.o  -o p1charts  drawing/libDrawing.dylib storage/libStorage.dylib -lcairo -ljansson 

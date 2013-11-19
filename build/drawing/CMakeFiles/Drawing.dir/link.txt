@@ -1,0 +1,1 @@
+/usr/bin/cc   -dynamiclib -Wl,-headerpad_max_install_names   -o libDrawing.dylib -install_name /Users/rodrigopex/Teaching/p1/2013.2/P1Charts/build/drawing/libDrawing.dylib CMakeFiles/Drawing.dir/drawing.c.o -lcairo 
