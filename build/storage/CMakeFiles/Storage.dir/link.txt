@@ -1,1 +1,0 @@
-/usr/bin/cc   -dynamiclib -Wl,-headerpad_max_install_names   -o libStorage.dylib -install_name /Users/rodrigopex/Teaching/p1/2013.2/P1Charts/build/storage/libStorage.dylib CMakeFiles/Storage.dir/storage.c.o -ljansson 

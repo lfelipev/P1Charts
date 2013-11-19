@@ -3,7 +3,7 @@
 #include "storage.h"
 
 int main() {
-	printf("Hello World!\n");
+	printf("Hello git!\n");
 	loadFile();
 	drawRectangle();
 	return 0;
