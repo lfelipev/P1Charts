@@ -68,7 +68,7 @@ Chart *ChartCreate(char * filePath) {
     chart->fileType = (strcmp("png",fileType) == 0 ? 0: 1);
     chart->filePath = createFilePath(JsonGetStringAttribute(root, "fileName"),
 									 fileType);
-    chart->chart	Name = JsonGetStringAttribute(root, "chartName");
+    chart->chartName = JsonGetStringAttribute(root, "chartName");
     chart->chartWidth = JsonGetIntAttribute(root, "chartWidth");
     chart->chartHeight = JsonGetIntAttribute(root, "chartHeight");
     chart->chartType = JsonGetStringAttribute(root, "chartType");
