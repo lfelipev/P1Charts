@@ -43,6 +43,13 @@ int main() {
 					  {1.0, 0.0, 1.0, 1.0}, // Color Bg
 					  {0.0, 1.0, 0.0, 1.0} // Color border
 	};
+
+	Title titl = {chart->chartName,
+				chart->chartWidth,
+				chart->chartHeight
+	};
+
+	DrawerDrawTitle(cairo, titl);
 	DrawerDrawRectangle(cairo, rect);
 	pizza(cairo, chart);
 	DrawerSave(cairo, chart->fileType, chart->filePath);
