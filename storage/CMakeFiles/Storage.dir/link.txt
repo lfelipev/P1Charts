@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -std=c99   -shared -Wl,-soname,libStorage.so -o libStorage.so CMakeFiles/Storage.dir/storage.c.o -ljansson 
