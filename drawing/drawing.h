@@ -43,15 +43,25 @@ typedef struct _arc Arc;
 
 struct _title {
 	const char * chartTitle;
-	int spacWidth;
-	int spacHeidth;
+	float spacWidth;
+	float spacHeidth;
 };
 
 typedef struct _title Title;
+
+struct _label {
+	const char * chartLabel;
+	float spacX;
+	float spacY;
+	float sizeWidth;
+};
+
+typedef struct _label Label;
 
 Drawer * DrawerInit(int width, int height, char fileTypePDF, const char * filePath);
 void DrawerDestroy(Drawer * self);
 void DrawerDrawRectangle(Drawer * self, Rectangle rect);
 void DrawerDrawArc(Drawer * self, Arc arc);
 void DrawerDrawTitle(Drawer * self, Title titl);
+void DrawerDrawPizzaLabel(Drawer * self, Label lab);
 void DrawerSave(Drawer * self, char fileTypePDF, const char * filePath);

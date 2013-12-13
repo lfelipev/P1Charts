@@ -22,18 +22,24 @@ void pizza(Drawer * drawer, Chart * chart) {
 	}
 }
 
-void legenda(Drawer * drawer, Chart * chart) {
+void PizzaLabel(Drawer * drawer, Chart * chart) {
 	int initY = (chart->chartHeight/4);
 	for(int i = 0; chart->content[i] != 0; ++i) {
 		Rectangle rect = {(chart->chartWidth/2)+(chart->chartHeight/5), //x
 					  	initY + i*(chart->chartWidth/10), //y
 					  	chart->chartWidth/10, //width
 					  	chart->chartHeight/10, //height
-					  	0.0, // borderWidth
+					  	0.5, // borderWidth
 					  	{1.0, 0.0, 0.0, 1.0}, // Color Bg
-					  	{0.0, 1.0, 0.0, 1.0} // Color border
+					  	{0.0, 0.0, 0.0, 1.0} // Color border
+		};
+		Label lab = {chart->content[i]->label, //Label
+					(chart->chartWidth/2)+(chart->chartHeight/2.85), //x
+					initY + (chart->chartWidth/20) + i*(chart->chartWidth/10), //y
+					chart->chartWidth //para o tamanho da fonte
 		};
 		DrawerDrawRectangle(drawer, rect);
+		DrawerDrawPizzaLabel(drawer, lab);
 	}	
 }
 
@@ -59,7 +65,7 @@ int main() {
 
 	DrawerDrawTitle(cairo, titl);
 	pizza(cairo, chart);
-	legenda(cairo, chart);
+	PizzaLabel(cairo, chart);
 	DrawerSave(cairo, chart->fileType, chart->filePath);
 	DrawerDestroy(cairo);
 	return 0;

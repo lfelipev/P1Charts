@@ -40,15 +40,32 @@ void DrawerDrawRectangle(Drawer * self, Rectangle rect) {
 void DrawerDrawTitle(Drawer * self, Title titl) {
   cairo_text_extents_t extents; //Para centralizar o título
   cairo_set_source_rgb(self->context, 0.0, 0.0, 0.0); // Cor do Texto
+
   cairo_select_font_face(self->context, "Umpush", //
       CAIRO_FONT_SLANT_NORMAL,			// Fonte
       CAIRO_FONT_WEIGHT_BOLD);			//
 
   cairo_set_font_size(self->context, titl.spacWidth*0.055);	// Tamanho do Texto
   cairo_text_extents(self->context, titl.chartTitle, &extents); // Título
+
   cairo_move_to(self->context, titl.spacWidth/2 - extents.width/2, titl.spacHeidth*0.08); //Posição do Título
   cairo_show_text(self->context, titl.chartTitle); 
+
   cairo_stroke(self->context);
+}
+
+void DrawerDrawPizzaLabel(Drawer * self, Label lab) {
+	cairo_set_source_rgb(self->context, 0.0, 0.0, 0.0);
+
+	cairo_select_font_face(self->context, "Arial",
+		CAIRO_FONT_SLANT_NORMAL,
+      		CAIRO_FONT_WEIGHT_NORMAL);
+	cairo_set_font_size(self->context, lab.sizeWidth*0.030);
+
+	cairo_move_to(self->context, lab.spacX, lab.spacY);
+  	cairo_show_text(self->context, lab.chartLabel);
+
+	cairo_stroke(self->context);	
 }
 
 void DrawerDrawArc(Drawer * self, Arc arc) {
