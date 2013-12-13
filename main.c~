@@ -22,6 +22,21 @@ void pizza(Drawer * drawer, Chart * chart) {
 	}
 }
 
+void legenda(Drawer * drawer, Chart * chart) {
+	int initY = (chart->chartHeight/4);
+	for(int i = 0; chart->content[i] != 0; ++i) {
+		Rectangle rect = {(chart->chartWidth/2)+(chart->Height/5), //x
+					  	initY + i*(chart->chartWidth/10), //y
+					  	chart->chartWidth/10, //width
+					  	chart->Height/10, //height
+					  	0.0, // borderWidth
+					  	{1.0, 0.0, 0.0, 1.0}, // Color Bg
+					  	{0.0, 1.0, 0.0, 1.0} // Color border
+		};
+		DrawerDrawRectangle(drawer, rect);
+	}	
+}
+
 int main() {
 	Chart * chart = ChartCreate("test.json");
 	Drawer * cairo = DrawerInit(chart->chartWidth, chart->chartHeight, chart->fileType, chart->filePath); //cria o background
@@ -34,24 +49,17 @@ int main() {
 					  {0.0, 0.0, 0.0, 0.0}// Color border (borderless)
 	};
 	DrawerDrawRectangle(cairo, base);
-
-	Rectangle rect = {(chart->chartWidth/2)+40, //x
-					  (chart->chartHeight/2)-50, //y
-					  20, //width
-					  20, //height
-					  0.0, // borderWidth
-					  {1.0, 0.0, 1.0, 1.0}, // Color Bg
-					  {0.0, 1.0, 0.0, 1.0} // Color border
-	};
-
+	
+		
+	
 	Title titl = {chart->chartName,
-				chart->chartWidth/2,
-				chart->chartHeight*.05
+				chart->chartWidth,
+				chart->chartHeight
 	};
 
 	DrawerDrawTitle(cairo, titl);
-	DrawerDrawRectangle(cairo, rect);
 	pizza(cairo, chart);
+	legenda(cairo, chart);
 	DrawerSave(cairo, chart->fileType, chart->filePath);
 	DrawerDestroy(cairo);
 	return 0;
