@@ -13,11 +13,11 @@ void pizza(Drawer * drawer, Chart * chart) {
                         1.0, 1.0, 0.0, 
                         1.0, 0.0, 1.0};
     for(int i = 0; chart->content[i] != 0; ++i) {
-        Arc arc = {chart->chartWidth/2, //x
-                  chart->chartHeight/2, //y
+        Arc arc = {chart->chartWidth/3.3, //x
+                  chart->chartHeight/1.8, //y
                   initAngle, //initAngle"
                   initAngle + chart->content[i]->percentage*2*M_PI, //endAngle
-                  50,   //radius
+                  ((chart->chartWidth)+(chart->chartHeight))*0.16,   //radius
                   0.5, // borderWidth
                   {Colors[i][0], Colors[i][1], Colors[i][2], 1.0}, // Color Bg
                   {0.0, 0.0, 0.0, 1.0} // Color border
