@@ -17,6 +17,7 @@ struct _chart {
 	int chartWidth;
 	int chartHeight;
 	const char * chartType;
+	float chartColor[3][3]={1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0};
 	Datum ** content;
 };
 typedef struct _chart Chart;

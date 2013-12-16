@@ -7,15 +7,20 @@
 
 void pizza(Drawer * drawer, Chart * chart) {
     float initAngle = 0.0;
+    float Colors[5][3]={1.0, 0.0, 0.0, 
+                        0.0, 1.0, 0.0, 
+                        0.0, 0.0, 1.0, 
+                        1.0, 1.0, 0.0, 
+                        1.0, 0.0, 1.0};
     for(int i = 0; chart->content[i] != 0; ++i) {
         Arc arc = {chart->chartWidth/2, //x
                   chart->chartHeight/2, //y
                   initAngle, //initAngle"
                   initAngle + chart->content[i]->percentage*2*M_PI, //endAngle
                   50,   //radius
-                  1.0, // borderWidth
-                  {i*0.5, 1.0, i*0.6, 1.0}, // Color Bg
-                  {i*0.9, 0, i*0.7, 1.0} // Color border
+                  0.5, // borderWidth
+                  {Colors[i][0], Colors[i][1], Colors[i][2], 1.0}, // Color Bg
+                  {0.0, 0.0, 0.0, 1.0} // Color border
         };
         DrawerDrawArc(drawer, arc);
         initAngle += chart->content[i]->percentage*2*M_PI;
@@ -24,13 +29,18 @@ void pizza(Drawer * drawer, Chart * chart) {
 
 void PizzaLabel(Drawer * drawer, Chart * chart) {
 	int initY = (chart->chartHeight/4);
+	float Colors[5][3]={1.0, 0.0, 0.0, 
+			    0.0, 1.0, 0.0, 
+                            0.0, 0.0, 1.0, 
+                            1.0, 1.0, 0.0, 
+			    1.0, 0.0, 1.0};
 	for(int i = 0; chart->content[i] != 0; ++i) {
 		Rectangle rect = {(chart->chartWidth/2)+(chart->chartHeight/5), //x
 					  	initY + i*(chart->chartWidth/10), //y
 					  	chart->chartWidth/10, //width
 					  	chart->chartHeight/10, //height
 					  	0.5, // borderWidth
-					  	{1.0, 0.0, 0.0, 1.0}, // Color Bg
+					  	{Colors[i][0], Colors[i][1], Colors[i][2], 1.0}, // Color Bg
 					  	{0.0, 0.0, 0.0, 1.0} // Color border
 		};
 		Label lab = {chart->content[i]->label, //Label
@@ -62,7 +72,7 @@ int main() {
 				chart->chartWidth,
 				chart->chartHeight
 	};
-
+	
 	DrawerDrawTitle(cairo, titl);
 	pizza(cairo, chart);
 	PizzaLabel(cairo, chart);
