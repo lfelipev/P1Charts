@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/felipe/P1Charts/storage/storage.c
+storage.h
+/home/felipe/P1Charts/storage/storage.h
+
+/home/felipe/P1Charts/storage/storage.h
+jansson.h
+-
+stdio.h
+-
+string.h
+-
+
+/home/felipe/P1Charts/storage/storageTest.c
+stdio.h
+-
+storage.h
+/home/felipe/P1Charts/storage/storage.h
+

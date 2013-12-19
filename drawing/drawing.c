@@ -48,7 +48,7 @@ void DrawerDrawTitle(Drawer * self, Title titl) {
   cairo_set_font_size(self->context, titl.spacWidth*0.055);	// Tamanho do Texto
   cairo_text_extents(self->context, titl.chartTitle, &extents); // Título
 
-  cairo_move_to(self->context, titl.spacWidth/2 - extents.width/2, titl.spacHeidth*0.08); //Posição do Título
+  cairo_move_to(self->context, titl.spacWidth/2 - extents.width/2, titl.spacHeidth*0.09); //Posição do Título
   cairo_show_text(self->context, titl.chartTitle); 
 
   cairo_stroke(self->context);
@@ -62,8 +62,13 @@ void DrawerDrawPizzaLabel(Drawer * self, Label lab) {
       		CAIRO_FONT_WEIGHT_NORMAL);
 	cairo_set_font_size(self->context, lab.sizeWidth*0.030);
 
-	cairo_move_to(self->context, lab.spacX, lab.spacY);
+	cairo_move_to(self->context, lab.spacX, lab.spacY); //desenha a legenda
   	cairo_show_text(self->context, lab.chartLabel);
+
+	cairo_set_source_rgb(self->context, 1.0, 1.0, 1.0);
+	
+	cairo_move_to(self->context, lab.spacpercentageX, lab.spacY); //desenha a porcentagem da legenda
+  	cairo_show_text(self->context, lab.percentage);
 
 	cairo_stroke(self->context);	
 }

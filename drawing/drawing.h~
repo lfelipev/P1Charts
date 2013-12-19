@@ -51,10 +51,12 @@ typedef struct _title Title;
 
 struct _label {
 	const char * chartLabel;
-	const char * chartPercentage;
 	float spacX;
 	float spacY;
 	float sizeWidth;
+	const char * percentage;
+	float spacpercentageX;
+	float spacpercentageY;
 };
 
 typedef struct _label Label;

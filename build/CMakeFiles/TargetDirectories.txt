@@ -1,0 +1,5 @@
+/home/felipe/P1Charts/build/drawing/CMakeFiles/Drawing.dir
+/home/felipe/P1Charts/build/storage/CMakeFiles/Storage.dir
+/home/felipe/P1Charts/build/CMakeFiles/p1charts.dir
+/home/felipe/P1Charts/build/storage/CMakeFiles/storageTest.dir
+/home/felipe/P1Charts/build/drawing/CMakeFiles/test.dir

@@ -54,6 +54,8 @@ struct _label {
 	float spacX;
 	float spacY;
 	float sizeWidth;
+	const char * percentage;
+	float spacpercentageX;
 };
 
 typedef struct _label Label;

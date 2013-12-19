@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=c99    CMakeFiles/storageTest.dir/storageTest.c.o CMakeFiles/storageTest.dir/storage.c.o  -o storageTest -rdynamic -ljansson 

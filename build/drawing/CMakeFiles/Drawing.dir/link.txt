@@ -1,0 +1,1 @@
+/usr/bin/cc  -fPIC -std=c99   -shared -Wl,-soname,libDrawing.so -o libDrawing.so CMakeFiles/Drawing.dir/drawing.c.o -lm -lcairo 

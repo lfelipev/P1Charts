@@ -1,0 +1,1 @@
+/usr/bin/cc  -std=c99    CMakeFiles/p1charts.dir/main.c.o CMakeFiles/p1charts.dir/drawing/drawing.c.o CMakeFiles/p1charts.dir/storage/storage.c.o  -o p1charts -rdynamic drawing/libDrawing.so storage/libStorage.so -lm -lcairo -ljansson -Wl,-rpath,/home/felipe/P1Charts/build/drawing:/home/felipe/P1Charts/build/storage 

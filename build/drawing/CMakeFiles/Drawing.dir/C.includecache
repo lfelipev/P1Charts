@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/felipe/P1Charts/drawing/drawing.c
+drawing.h
+/home/felipe/P1Charts/drawing/drawing.h
+
+/home/felipe/P1Charts/drawing/drawing.h
+cairo/cairo.h
+-
+cairo/cairo-pdf.h
+-
+stdlib.h
+-
+math.h
+-
+
