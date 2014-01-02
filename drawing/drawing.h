@@ -60,6 +60,17 @@ struct _label {
 
 typedef struct _label Label;
 
+struct _line {
+	double horizontal_x;
+	double horizontal_y;
+	double vertical_y;
+	double large_x;
+	double large_y;
+	float width;
+};
+
+typedef struct _line Line;
+
 Drawer * DrawerInit(int width, int height, char fileTypePDF, const char * filePath);
 void DrawerDestroy(Drawer * self);
 void DrawerDrawRectangle(Drawer * self, Rectangle rect);

@@ -8,15 +8,23 @@
 	"content" : [
 		{
 			"label" : "LINUX",
-			"percentage" : 0.333
+			"percentage" : 0.30
 		},
 		{
-			"label" : "WINDOWS",
-			"percentage" : 0.333
+			"label" : "LINUX",
+			"percentage" : 0.20
 		},
 		{
-			"label" : "MAC",
-			"percentage" : 0.333
+			"label" : "LINUX",
+			"percentage" : 0.30
+		},
+		{
+			"label" : "LINUX",
+			"percentage" : 0.10
+		},
+		{
+			"label" : "LINUX",
+			"percentage" : 0.10
 		}
 	] 
 }

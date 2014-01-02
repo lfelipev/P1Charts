@@ -45,8 +45,18 @@ void pizza(Drawer * drawer, Chart * chart) {
 }
 
 void PizzaLabel(Drawer * drawer, Chart * chart) {
+	float cont = 0;
+	float initY;
+	for(int i = 0; chart->content[i] != 0; ++i) {
+		++cont;
+	}
 	if (chart->chartWidth >= chart->chartHeight) {
-		int initY = (chart->chartHeight*0.4);
+		if (cont == 1) {
+			initY = chart->chartHeight/2;
+		}
+		else {
+			initY = (chart->chartHeight/2) / (cont*0.6);
+		}
 		for(int i = 0; chart->content[i] != 0; ++i) {
 			Rectangle rect = {(chart->chartWidth/2)+(chart->chartHeight/5), //x
 						  	initY + i*(chart->chartWidth/10), //y
@@ -63,7 +73,7 @@ void PizzaLabel(Drawer * drawer, Chart * chart) {
 						initY + (chart->chartWidth/20) + i*(chart->chartWidth/10), //y
 						chart->chartWidth, //para o tamanho da fonte
 						percentage, // porcentagem
-						(chart->chartWidth/2)+(chart->chartHeight/4.25) //x percentage
+						(chart->chartWidth/2)+(chart->chartHeight/4.35) //x percentage
 			};
 			DrawerDrawRectangle(drawer, rect);
 			DrawerDrawPizzaLabel(drawer, lab);
@@ -91,9 +101,20 @@ int main() {
 				chart->chartHeight
 	};
 	
+	Line lin = {
+		chart->chartWidth*0.0625, // x horizontal
+		chart->chartHeight*0.8333, // y horizontal
+		chart->chartHeight*0.9166, // y da vertical
+		chart->chartWidth - (chart->chartWidth*0.0625), // largura x
+		200, // largura y 
+		3	// tamanho da fonte	
+	};
+	
+	
+	DrawerDrawLines(cairo, lin);
 	DrawerDrawTitle(cairo, titl);
-	pizza(cairo, chart);
-	PizzaLabel(cairo, chart);
+	//pizza(cairo, chart);
+	//PizzaLabel(cairo, chart);
 	DrawerSave(cairo, chart->fileType, chart->filePath);
 	DrawerDestroy(cairo);
 	return 0;

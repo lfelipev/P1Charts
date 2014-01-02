@@ -3,20 +3,12 @@
 	"fileType": "png",
 	"chartName" : "Sistemas operacionais",
 	"chartWidth" : 800,
-	"chartHeight" : 400,
+	"chartHeight" : 600,
 	"chartType" : "pizza",
 	"content" : [
 		{
 			"label" : "LINUX",
-			"percentage" : 0.333
-		},
-		{
-			"label" : "WINDOWS",
-			"percentage" : 0.333
-		},
-		{
-			"label" : "MAC",
-			"percentage" : 0.333
+			"percentage" : 1.00
 		}
 	] 
 }
