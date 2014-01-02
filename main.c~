@@ -81,6 +81,21 @@ void PizzaLabel(Drawer * drawer, Chart * chart) {
 	}	
 }
 
+void bars(Drawer * drawer, Chart * chart) {
+	Line lin = {
+		chart->chartWidth*0.0625, // x horizontal
+		chart->chartHeight*0.8333, // y horizontal
+		chart->chartHeight*0.9166, // y da vertical
+		chart->chartWidth - (chart->chartWidth*0.0625), // largura x
+		chart->chartHeight*0.1667, //  y
+		chart->chartHeight*0.14,
+		3	// tamanho da fonte	
+	};
+	DrawerDrawLines(drawer, lin);
+	
+
+}
+
 int main() {
 	Chart * chart = ChartCreate("test.json");
 	Drawer * cairo = DrawerInit(chart->chartWidth, chart->chartHeight, chart->fileType, chart->filePath); //cria o background
@@ -101,18 +116,10 @@ int main() {
 				chart->chartHeight
 	};
 	
-	Line lin = {
-		chart->chartWidth*0.0625, // x horizontal
-		chart->chartHeight*0.8333, // y horizontal
-		chart->chartHeight*0.9166, // y da vertical
-		chart->chartWidth - (chart->chartWidth*0.0625), // largura x
-		200, // largura y 
-		3	// tamanho da fonte	
-	};
 	
 	
-	DrawerDrawLines(cairo, lin);
 	DrawerDrawTitle(cairo, titl);
+	bars(cairo, chart);
 	//pizza(cairo, chart);
 	//PizzaLabel(cairo, chart);
 	DrawerSave(cairo, chart->fileType, chart->filePath);

@@ -81,6 +81,31 @@ void PizzaLabel(Drawer * drawer, Chart * chart) {
 	}	
 }
 
+void bars(Drawer * drawer, Chart * chart) {
+	Line lin = {
+		chart->chartWidth*0.0625, // x horizontal
+		chart->chartHeight*0.8333, // y horizontal
+		chart->chartHeight*0.9166, // y da vertical
+		chart->chartWidth - (chart->chartWidth*0.0625), // largura x
+		chart->chartHeight*0.1667, //  y
+		chart->chartHeight*0.14,
+		3	// tamanho da fonte	
+	};
+	DrawerDrawLines(drawer, lin);
+	float initY;
+	for(int i = 0; chart->content[i] != 0; ++i) {
+			Rectangle rect = {(chart->chartWidth/2)+(chart->chartHeight/5), //x
+						  	initY + i*(chart->chartWidth/10), //y
+						  	chart->chartWidth/10, //width
+						  	chart->chartHeight/10, //height
+						  	0.5, // borderWidth
+						  	{Colors[i][0], Colors[i][1], Colors[i][2], 1.0}, // Color Bg
+						  	{0.0, 0.0, 0.0, 1.0} // Color border
+			};
+	
+
+}
+
 int main() {
 	Chart * chart = ChartCreate("test.json");
 	Drawer * cairo = DrawerInit(chart->chartWidth, chart->chartHeight, chart->fileType, chart->filePath); //cria o background
@@ -101,18 +126,10 @@ int main() {
 				chart->chartHeight
 	};
 	
-	Line lin = {
-		chart->chartWidth*0.0625, // x horizontal
-		chart->chartHeight*0.8333, // y horizontal
-		chart->chartHeight*0.9166, // y da vertical
-		chart->chartWidth - (chart->chartWidth*0.0625), // largura x
-		200, // largura y 
-		3	// tamanho da fonte	
-	};
 	
 	
-	DrawerDrawLines(cairo, lin);
 	DrawerDrawTitle(cairo, titl);
+	bars(cairo, chart);
 	//pizza(cairo, chart);
 	//PizzaLabel(cairo, chart);
 	DrawerSave(cairo, chart->fileType, chart->filePath);

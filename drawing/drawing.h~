@@ -65,6 +65,7 @@ struct _line {
 	double horizontal_y;
 	double vertical_y;
 	double large_x;
+	double large_y;
 	float width;
 };
 
