@@ -94,14 +94,16 @@ void bars(Drawer * drawer, Chart * chart) {
 	DrawerDrawLines(drawer, lin);
 	float initY;
 	for(int i = 0; chart->content[i] != 0; ++i) {
-			Rectangle rect = {(chart->chartWidth/2)+(chart->chartHeight/5), //x
-						  	initY + i*(chart->chartWidth/10), //y
-						  	chart->chartWidth/10, //width
-						  	chart->chartHeight/10, //height
+			Rectangle rect = {chart->chartWidth*0.2, //x
+						  	chart->chartHeight*0.8333, //y NÃO MECHER
+						  	chart->chartWidth*0.650, //width
+						  	-chart->chartHeight/10, //height
 						  	0.5, // borderWidth
 						  	{Colors[i][0], Colors[i][1], Colors[i][2], 1.0}, // Color Bg
 						  	{0.0, 0.0, 0.0, 1.0} // Color border
 			};
+			DrawerDrawRectangle(drawer, rect);
+	}
 	
 
 }
