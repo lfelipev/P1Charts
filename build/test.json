@@ -21,10 +21,6 @@
 		{
 			"label" : "LINUX",
 			"percentage" : 0.10
-		},
-		{
-			"label" : "LINUX",
-			"percentage" : 0.10
 		}
 	] 
 }

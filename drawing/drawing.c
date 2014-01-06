@@ -68,7 +68,7 @@ void DrawerDrawTitle(Drawer * self, Title titl) {
 }
 
 void DrawerDrawPizzaLabel(Drawer * self, Label lab) {
-	cairo_set_source_rgb(self->context, 0.0, 0.0, 0.0);
+	cairo_set_source_rgb(self->context, lab.percentage_cor1, lab.percentage_cor2, lab.percentage_cor3);
 
 	cairo_select_font_face(self->context, "Arial",
 		CAIRO_FONT_SLANT_NORMAL,
@@ -78,9 +78,9 @@ void DrawerDrawPizzaLabel(Drawer * self, Label lab) {
 	cairo_move_to(self->context, lab.spacX, lab.spacY); //desenha a legenda
   	cairo_show_text(self->context, lab.chartLabel);
 
-	cairo_set_source_rgb(self->context, 1.0, 1.0, 1.0);
+	cairo_set_source_rgb(self->context, lab.cor1, lab.cor2, lab.cor3);
 	
-	cairo_move_to(self->context, lab.spacpercentageX, lab.spacY); //desenha a porcentagem da legenda
+	cairo_move_to(self->context, lab.spacpercentageX, lab.spacpercentageY); //desenha a porcentagem da legenda
   	cairo_show_text(self->context, lab.percentage);
 
 	cairo_stroke(self->context);	

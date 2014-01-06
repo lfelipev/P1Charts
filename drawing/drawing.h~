@@ -56,6 +56,13 @@ struct _label {
 	float sizeWidth;
 	const char * percentage;
 	float spacpercentageX;
+	float spacpercentageY;
+	float percentage_cor1;
+	float percentage_cor2;
+	float percentage_cor3;
+	float cor1;
+	float cor2;
+	float cor3;
 };
 
 typedef struct _label Label;
@@ -66,6 +73,7 @@ struct _line {
 	double vertical_y;
 	double large_x;
 	double large_y;
+	double large_y2;
 	float width;
 };
 

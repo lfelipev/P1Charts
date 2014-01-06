@@ -73,7 +73,14 @@ void PizzaLabel(Drawer * drawer, Chart * chart) {
 						initY + (chart->chartWidth/20) + i*(chart->chartWidth/10), //y
 						chart->chartWidth, //para o tamanho da fonte
 						percentage, // porcentagem
-						(chart->chartWidth/2)+(chart->chartHeight/4.35) //x percentage
+						(chart->chartWidth/2)+(chart->chartHeight/4.35), //x percentage
+						initY + (chart->chartWidth/20) + i*(chart->chartWidth/10),
+						1.0,
+1.0,
+1.0,
+0.0,
+0.0,
+0.0										
 			};
 			DrawerDrawRectangle(drawer, rect);
 			DrawerDrawPizzaLabel(drawer, lab);
@@ -83,26 +90,55 @@ void PizzaLabel(Drawer * drawer, Chart * chart) {
 
 void bars(Drawer * drawer, Chart * chart) {
 	Line lin = {
-		chart->chartWidth*0.0625, // x horizontal
-		chart->chartHeight*0.8333, // y horizontal
-		chart->chartHeight*0.9166, // y da vertical
+		chart->chartWidth*0.0625, // x horizontal posição de inicio
+		chart->chartHeight*0.8333, // y horizontal posição de inicio
+		chart->chartHeight*0.9166, // y posição
 		chart->chartWidth - (chart->chartWidth*0.0625), // largura x
-		chart->chartHeight*0.1667, //  y
+		chart->chartHeight*0.1667, //  y tamanho do eixo Y
 		chart->chartHeight*0.14,
 		3	// tamanho da fonte	
 	};
 	DrawerDrawLines(drawer, lin);
-	float initY;
+	float initX = chart->chartWidth*0.2;
+	float maior_porcentagem = chart->content[0]->percentage;
+	const char * maior_legenda;
+	int cont = 0;
 	for(int i = 0; chart->content[i] != 0; ++i) {
-			Rectangle rect = {chart->chartWidth*0.2, //x
-						  	chart->chartHeight*0.8333, //y NÃO MECHER
-						  	chart->chartWidth*0.6, //width
-						  	-chart->chartHeight/10, //height
+		++cont;
+		if (chart->content[i]->percentage >= maior_porcentagem) {
+			maior_porcentagem = chart->content[i]->percentage;
+			maior_legenda = chart->content[i]->label;
+		}
+	}
+	for(int i = 0; chart->content[i] != 0; ++i) {
+			Rectangle rect = {initX + i*(chart->chartWidth*0.5)/(cont) + i*(chart->chartWidth/20), // posição da barra no eixo x(de acordo com a quantidade de barras)
+						  	chart->chartHeight*0.8333, //y NÃO MECHER posição da barra no eixo y
+						  	(chart->chartWidth*0.5)/(cont), //width tamanho da barra no eixo x
+						  	-((chart->content[i]->percentage)*(chart->chartHeight*0.60)/maior_porcentagem), //height >> tamanho da barra >> será de acordo com a percentage
 						  	0.5, // borderWidth
 						  	{Colors[i][0], Colors[i][1], Colors[i][2], 1.0}, // Color Bg
 						  	{0.0, 0.0, 0.0, 1.0} // Color border
 			};
+
+			char * percentage = malloc(sizeof (char)*20);
+			sprintf(percentage, "%d%%", (int)(chart->content[i]->percentage*100));
+			Label lab = {chart->content[i]->label, //Label Nome da Legenda
+						initX + i*(chart->chartWidth*0.5)/(cont) + i*(chart->chartWidth/20) + chart->chartWidth*0.02, //Posição X da legenda
+						chart->chartHeight*0.88, // Posição Y da legenda
+						chart->chartWidth, //para o tamanho da fonte
+						percentage, // porcentagem
+						chart->chartWidth*0.05, //posição X da porcentagem
+						((chart->content[i]->percentage)*(chart->chartHeight*0.65)/maior_porcentagem), //posição Y da Porcentagem
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						0.0	
+			};
+		
 			DrawerDrawRectangle(drawer, rect);
+			DrawerDrawPizzaLabel(drawer, lab);
 	}
 	
 
