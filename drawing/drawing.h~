@@ -57,24 +57,22 @@ struct _label {
 	const char * percentage;
 	float spacpercentageX;
 	float spacpercentageY;
-	float percentage_cor1;
-	float percentage_cor2;
-	float percentage_cor3;
 	float cor1;
 	float cor2;
 	float cor3;
+	float percentage_cor1;
+	float percentage_cor2;
+	float percentage_cor3;
 };
 
 typedef struct _label Label;
 
 struct _line {
-	double horizontal_x;
-	double horizontal_y;
-	double vertical_y;
-	double large_x;
-	double large_y;
-	double large_y2;
-	float width;
+	double init_horizontal_x;
+	double init_horizontal_y;
+	double final_horizontal_x;
+	double init_vertical_y;
+	double final_vertical_y;
 };
 
 typedef struct _line Line;
@@ -84,5 +82,6 @@ void DrawerDestroy(Drawer * self);
 void DrawerDrawRectangle(Drawer * self, Rectangle rect);
 void DrawerDrawArc(Drawer * self, Arc arc);
 void DrawerDrawTitle(Drawer * self, Title titl);
+void DrawerDrawLines(Drawer * self, Line line);
 void DrawerDrawPizzaLabel(Drawer * self, Label lab);
 void DrawerSave(Drawer * self, char fileTypePDF, const char * filePath);
