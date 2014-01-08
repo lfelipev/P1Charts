@@ -1,0 +1,26 @@
+{
+	"fileName": "argumento01",
+	"fileType": "png",
+	"chartName" : "Sistemas operacionais",
+	"chartWidth" : 800,
+	"chartHeight" : 800,
+	"chartType" : "bars",
+	"content" : [
+		{
+			"label" : "LINUX",
+			"percentage" : 0.20
+		},
+		{
+			"label" : "LINUX",
+			"percentage" : 0.20
+		},
+		{
+			"label" : "Windows",
+			"percentage" : 0.20
+		},
+		{
+			"label" : "LINUX",
+			"percentage" : 0.20
+		}
+	] 
+}

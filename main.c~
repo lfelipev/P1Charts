@@ -187,8 +187,9 @@ void bars(Drawer * drawer, Chart * chart) {
 	}
 }
 
-int main() {
-	Chart * chart = ChartCreate("test.json");
+int main(int argc, char *argv[]) {
+    int contador;
+	Chart * chart = ChartCreate(argv[1]);
 	Drawer * cairo = DrawerInit(chart->chartWidth, chart->chartHeight, chart->fileType, chart->filePath);	
 	/* Estrutura para o Background */
 	Rectangle base = {0, //x
@@ -201,8 +202,8 @@ int main() {
 	};
 	DrawerDrawRectangle(cairo, base);
 	
-	/* Estrutura para o título */
 	Title titl = {chart->chartName,
+	/* Estrutura para o título */
 				chart->chartWidth,
 				chart->chartHeight
 	};
@@ -216,7 +217,7 @@ int main() {
 	else {
 	    bars(cairo, chart);
 	}
-
+    
 	DrawerSave(cairo, chart->fileType, chart->filePath);
 	DrawerDestroy(cairo);
 	return 0;
