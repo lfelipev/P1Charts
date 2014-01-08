@@ -69,7 +69,7 @@ void DrawerDrawTitle(Drawer * self, Title titl) {
   cairo_stroke(self->context);
 }
 
-void DrawerDrawPizzaLabel(Drawer * self, Label lab) {
+void DrawerDrawLabel(Drawer * self, Label lab) {
 	cairo_set_source_rgb(self->context, lab.percentage_cor1, lab.percentage_cor2, lab.percentage_cor3);
 
 	cairo_select_font_face(self->context, "Arial",

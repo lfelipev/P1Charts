@@ -20,11 +20,3 @@ stdlib.h
 math.h
 -
 
-/home/felipe/P1Charts/drawing/drawingTest.c
-cairo/cairo.h
--
-math.h
--
-drawing.h
-/home/felipe/P1Charts/drawing/drawing.h
-
