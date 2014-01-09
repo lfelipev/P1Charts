@@ -3,7 +3,7 @@
 	"fileType": "png",
 	"chartName" : "Sistemas operacionais",
 	"chartWidth" : 800,
-	"chartHeight" : 600,
+	"chartHeight" : 1000,
 	"chartType" : "bars",
 	"content" : [
 		{

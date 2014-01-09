@@ -121,7 +121,6 @@ void bars(Drawer * drawer, Chart * chart) {
 	
 	/* Dados iniciais para a criação das Barras */
 	float initX = chart->chartWidth*0.2;
-	float initX_label = chart->chartWidth*0.2;
 	float maior_porcentagem = chart->content[0]->percentage;
 	const char * maior_legenda;
 	int cont = 0;
@@ -149,19 +148,13 @@ void bars(Drawer * drawer, Chart * chart) {
         
         /* Dados para criação da label */            
 		char * percentage = malloc(sizeof (char)*20);
-		sprintf(percentage, "%d%%", (int)(chart->content[i]->percentage*100));    
-        if (cont == 1) {
-	        initX_label = chart->chartWidth*0.28;
-        }
-        else {
-	        initX_label = (chart->chartWidth*0.18);
-        }
+		sprintf(percentage, "%d%%", (int)(chart->content[i]->percentage*100));
         /* Estrutura para criação da label */
 		Label lab = {
 		                //Label Nome da Legenda:
 		                chart->content[i]->label, 
-		                //Posição X da legenda (Corretamente Centralizada):
-					    initX_label + i*(chart->chartWidth*0.5)/(cont) + i*(chart->chartWidth/20) + ((chart->chartWidth*0.5)/(cont))/4,
+		                //Posição X da legenda:
+					    initX + i*(chart->chartWidth*0.5)/(cont) + i*(chart->chartWidth/20) + ((chart->chartWidth*0.5)/(cont))/(cont+1),
 					    // Posição Y da legenda: 
 					    chart->chartHeight*0.88, 
 					    // Para o tamanho da fonte
